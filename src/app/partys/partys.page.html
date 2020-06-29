@@ -15,7 +15,7 @@
     <ion-row>
       <ion-list class="my-list">
         <ion-item *ngFor="let party of loadedPartys">
-            <ion-card [routerLink] = "['/','tabs','partys', party.id]" detail>
+            <ion-card [routerLink] = "['/tabs/partys', party.id]" detail>
               <ion-card-header>
                 <ion-card-title class="my-titel">{{ party.title }}</ion-card-title>
                 <ion-card-subtitle class="my-subtitle">{{party.price | currency:'CHF'}} / Entry</ion-card-subtitle>

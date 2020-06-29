@@ -5,6 +5,7 @@ import { Party, DJs } from './party.model';
   providedIn: 'root'
 })
 export class PartysService {
+  // tslint:disable-next-line: variable-name
   private _partys: Party[] = [
     new Party(
       'p6',
