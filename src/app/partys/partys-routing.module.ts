@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: PartysPage
+  },
+  {
+    path: 'partydetail',
+    loadChildren: () => import('./partydetail/partydetail.module').then( m => m.PartydetailPageModule)
   }
 ];
 
