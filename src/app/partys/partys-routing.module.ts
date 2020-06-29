@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: PartysPage
-  }
+  },
+  {
+    path: 'partyId',
+    loadChildren: () => import('./party-detail/party-detail.module').then( m => m.PartyDetailPageModule)
+  },
 ];
 
 @NgModule({

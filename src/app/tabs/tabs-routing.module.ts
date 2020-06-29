@@ -9,13 +9,14 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'partys',
         children: [
-          {path: '', loadChildren: () => import('../partys/partys.module').then( m => m.PartysPageModule)}
+          {path: '', loadChildren: () => import('../partys/partys.module').then( m => m.PartysPageModule)},
+          {path: ':partyId', loadChildren: '../partys/party-detail/party-detail.module#PartyDetailPageModule'}
         ]
       },
       {
-        path: 'tab2',
+        path: 'favorites',
         children: [
           {
             path: '',
@@ -23,10 +24,10 @@ const routes: Routes = [
           },
         ]
       },
-      { path: '',  redirectTo: 'tabs/tab1',  pathMatch: 'full' },
+      { path: '',  redirectTo: 'tabs/partys',  pathMatch: 'full' },
     ]
   },
-  { path: '',  redirectTo: 'tabs/tab1',  pathMatch: 'full' },
+  { path: '',  redirectTo: 'tabs/partys',  pathMatch: 'full' },
 ];
 
 @NgModule({

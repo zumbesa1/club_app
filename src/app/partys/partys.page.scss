@@ -1,0 +1,36 @@
+ion-content {
+    --ion-background-color: rgba(22, 22, 22, 0.5);
+}
+.my-titel{
+    font-size: 30px;
+    text-align: center;
+    font-family: Impact;
+    color: white;
+}
+.my-subtitle{
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+.mycard-content{
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-bottom: 0;
+}
+.my-ion-button{
+    font-weight: bold;
+    text-align: center;
+}
+.my-grid{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.my-list{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
