@@ -4,13 +4,22 @@ export class Party {
         public id: string,
         public date: string,
         public title: string,
-        public partyOrt: string,
+        public partyOrt: Club,
         public imgURL: string,
         public djs: string,
         public musik: string,
         public description: string,
         public price: number,
         public organizer: string,
+    ){}
+}
+
+export class Club {
+    constructor(
+        public id: string,
+        public name: string,
+        public long: number,
+        public lat: number,
     ){}
 }
 
@@ -29,26 +38,26 @@ export class Music {
 
 export class Organizer {
     constructor(
-        id: string,
-        firstName: string,
-        lastName: string,
+        public id: string,
+        public firstName: string,
+        public lastName: string,
     ){}
 }
 export class Person {
-        constructor(
-            id: string,
-            firstName: string,
-            lastName: string,
-            address: string,
-            plz: number,
-            password: string,
-            favorites: Favorites[],
-        ){}
+constructor(
+    public id: string,
+    public firstName: string,
+    public lastName: string,
+    public address: string,
+    public plz: number,
+    public password: string,
+    public favorites: Favorites[],
+){}
 }
 
 export class Favorites {
     constructor(
-        id: string,
-        firstName: string,
+       public id: string,
+       public firstName: string,
     ){}
 }
