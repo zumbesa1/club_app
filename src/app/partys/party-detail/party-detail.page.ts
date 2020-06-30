@@ -30,7 +30,6 @@ export class PartyDetailPage implements OnInit {
   }
 
   onBookPlace() {
-
     this.modalCtrl.create({
       component: CreateBookingComponent,
        componentProps: { selectedPlace: this.party }
@@ -45,6 +44,10 @@ export class PartyDetailPage implements OnInit {
         console.log('Booked!');
       }
     });
+  }
+
+  addToFavorites(){
+    this.partyService.postToFavorits();
   }
 
 }

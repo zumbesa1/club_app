@@ -1,3 +1,4 @@
+
 export class Party {
     constructor(
         public id: string,
@@ -9,6 +10,7 @@ export class Party {
         public musik: string,
         public description: string,
         public price: number,
+        public organizer: string,
     ){}
 }
 
@@ -22,5 +24,31 @@ export class Music {
     constructor(
         public id: string,
         public name: string,
+    ){}
+}
+
+export class Organizer {
+    constructor(
+        id: string,
+        firstName: string,
+        lastName: string,
+    ){}
+}
+export class Person {
+        constructor(
+            id: string,
+            firstName: string,
+            lastName: string,
+            address: string,
+            plz: number,
+            password: string,
+            favorites: Favorites[],
+        ){}
+}
+
+export class Favorites {
+    constructor(
+        id: string,
+        firstName: string,
     ){}
 }

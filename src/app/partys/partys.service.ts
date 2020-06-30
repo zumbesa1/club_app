@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Party, DJs } from './party.model';
+import { Party } from './party.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,7 @@ export class PartysService {
       'Hip Hop, Club Music, R&B',
       'in the daytime is best',
       30.00,
+      'Argjend Baftiji'
     ),
     new Party(
       'p2',
@@ -28,6 +29,7 @@ export class PartysService {
       'Latino, Reggeaton',
       'as never before',
       30.00,
+      'Luca'
     ),
     new Party(
       'p3',
@@ -39,6 +41,7 @@ export class PartysService {
       'Goa, Techno',
       'today is not tomorrow',
       25.00,
+      'Lucas'
     ),
     new Party(
       'p4',
@@ -50,6 +53,7 @@ export class PartysService {
       'Goa, Techno',
       'The night of your life',
       25.00,
+      'Sala'
     ),
     new Party(
       'p5',
@@ -61,6 +65,7 @@ export class PartysService {
       'Goa, Techno',
       'lets play',
       35.00,
+      'Nico'
     ),
     new Party(
       'p6',
@@ -72,6 +77,7 @@ export class PartysService {
       '',
       'The day of your life',
       20.00,
+      'Max'
     )
   ];
 
@@ -85,6 +91,9 @@ export class PartysService {
     return {...this._partys.find(p => p.id === id)};
   }
 
+  postToFavorits(){
+    console.log('Erfolgreich gepostet');
+  }
 
 
 

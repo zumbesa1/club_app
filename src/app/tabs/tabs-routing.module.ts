@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { TabsPage } from './tabs.page';
 import { PartyDetailPageModule } from '../partys/party-detail/party-detail.module';
 
@@ -13,9 +12,7 @@ const routes: Routes = [
         path: 'partys',
         children: [
           {path: '', loadChildren: () => import('../partys/partys.module').then( m => m.PartysPageModule)},
-          {path: ':partyId', loadChildren: () => PartyDetailPageModule}
-          // '../partys/party-detail/party-detail.module#PartyDetailPageModule'}
-          // Morgen nachfrage wieso hier der link manchmal funktioniert und manchmal nicht
+          {path: ':partyId', loadChildren: () => import('../partys/party-detail/party-detail.module').then(m => m.PartyDetailPageModule)}
         ]
       },
       {
