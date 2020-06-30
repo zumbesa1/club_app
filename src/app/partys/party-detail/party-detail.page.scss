@@ -1,5 +1,6 @@
 $title-grey: rgb(90, 90, 90);
 $white: white;
+$background-color: rgb(46, 43, 43);
 $font-family: 'Times New Roman', Times, serif;
 $tab-title-size: 20px;
 $card-title-size: 35px;
@@ -7,10 +8,10 @@ $card-subtitle-size: 25px;
 $card-content-size: 18px;
 
 ion-content {
-    --ion-background-color: rgba(22, 22, 22, 0.5);
+    --ion-background-color: $background-color;
 }
 .my-ion-content{
-    background-color: rgb(46, 43, 43);
+    background-color: $background-color;
 }
 .my-ion-title{
     font-size: $tab-title-size;
