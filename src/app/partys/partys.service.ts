@@ -8,18 +8,18 @@ export class PartysService {
   // tslint:disable-next-line: variable-name
   private _partys: Party[] = [
     new Party(
-      'p6',
+      'p1',
       '09.07.2020',
       'Smooth and Sexy',
-      'Hiltl, Club Music, R&B',
+      'Hiltl',
       'https://diginights.com/uploads/images/event/2017/07/15/2017-07-15-smooth-n-sexy-at-hiltl-club-sa-15-juli-2017-hiltl-club/headline_image-default-1.jpg',
       'dj kitra',
-      'Hip Hop, R&B',
+      'Hip Hop, Club Music, R&B',
       'in the daytime is best',
       30.00,
     ),
     new Party(
-      'p5',
+      'p2',
       '15.07.2020',
       'Snapback',
       'Jade',
@@ -41,7 +41,7 @@ export class PartysService {
       25.00,
     ),
     new Party(
-      'p1',
+      'p4',
       '03.07.2020',
       'Lemon Dayrave',
       'Hard One',
@@ -52,7 +52,7 @@ export class PartysService {
       25.00,
     ),
     new Party(
-      'p4',
+      'p5',
       '07.07.2020',
       'Blueprint',
       'Jade',
@@ -63,7 +63,7 @@ export class PartysService {
       35.00,
     ),
     new Party(
-      'p2',
+      'p6',
       '10.07.2020',
       'Smooth',
       'Hive',
