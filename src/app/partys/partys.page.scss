@@ -11,6 +11,11 @@ $card-content-size: 15px;
 ion-content {
     --ion-background-color: rgba(22, 22, 22, 0.5);
 }
+.my-ion-icon{
+    width: 20px;
+    height: 20px;
+    color: rgb(255, 0, 0);
+}
 .my-ion-title{
     font-size: $tab-title-size;
     text-align: center;
