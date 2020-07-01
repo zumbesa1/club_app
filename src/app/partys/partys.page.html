@@ -10,32 +10,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-grid class="my-grid">
-    <ion-row>
-      <ion-list class="my-list">
-        <ion-item *ngFor="let party of loadedPartys">
-            <ion-card [routerLink] = "['/tabs/partys', party.id]" detail>
-              <ion-card-header>
-                <div>
+<ion-content >
+      <ion-list class="my-list" *ngFor="let party of loadedPartys">   
+        <ion-card [routerLink] = "['/tabs/partys', party.id]" detail>
+          <ion-card-header>
+            <ion-grid>
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="auto">
                   <ion-icon class="my-ion-icon" name="pin-sharp"></ion-icon>
+                </ion-col>
+                <ion-col size="auto">
                   <ion-card-title class="my-titel">{{ party.title }}</ion-card-title>
-                </div>
-                <ion-card-subtitle class="my-subtitle">{{party.price | currency:'CHF'}} / Entry</ion-card-subtitle>
-              </ion-card-header>
-              <ion-img [src]="party.imgURL"></ion-img>
-              <ion-card-content class="mycard-content">
-                <p>{{party.date}}</p>
-                <p>{{party.description}}</p>
-              </ion-card-content>
-              <div class="my-ion-button">
-                <ion-button fill="clear" color="primary">
-                More
-                </ion-button>
-              </div>
-            </ion-card>
-        </ion-item>
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-button class="my-ion-button" fill="outline" color="primary">
+                    VIEW
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle class="my-subtitle">{{party.price | currency:'CHF'}} / Entry</ion-card-subtitle>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-header>
+          <ion-img [src]="party.imgURL"></ion-img>
+          <ion-card-content class="mycard-content">
+            <p>{{party.date}}</p>
+            <p>{{party.description}}</p>
+          </ion-card-content>
+        </ion-card>
       </ion-list>
-    </ion-row>
-  </ion-grid>
 </ion-content>
