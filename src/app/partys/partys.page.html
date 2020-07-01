@@ -28,17 +28,12 @@
                   </ion-button>
                 </ion-col>
               </ion-row>
-              <ion-row>
-                <ion-col>
-                  <ion-card-subtitle class="my-subtitle">{{party.price | currency:'CHF'}} / Entry</ion-card-subtitle>
-                </ion-col>
-              </ion-row>
             </ion-grid>
           </ion-card-header>
           <ion-img [src]="party.imgURL"></ion-img>
           <ion-card-content class="mycard-content">
             <p>{{party.date}}</p>
-            <p>{{party.description}}</p>
+            <p>{{party.price | currency:'CHF'}} / Entry</p>
           </ion-card-content>
         </ion-card>
       </ion-list>

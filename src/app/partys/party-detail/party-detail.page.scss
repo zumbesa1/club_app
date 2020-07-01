@@ -1,5 +1,6 @@
 $title-grey: rgb(90, 90, 90);
 $white: white;
+$black-for-font: rgb(31, 31, 31);
 $background-color: rgb(32, 32, 32);
 $font-family: 'Times New Roman', Times, serif;
 $tab-title-size: 20px;
@@ -7,9 +8,7 @@ $card-title-size: 35px;
 $card-subtitle-size: 25px;
 $card-content-size: 18px;
 
-ion-content {
-    --ion-background-color: $background-color;
-}
+
 .my-ion-content{
     background-color: $background-color;
 }
@@ -23,17 +22,17 @@ ion-content {
     font-size: $card-title-size;
     text-align: center;
     font-family: $font-family;
-    color: $white;
+    color: $black-for-font;
 }
 .my-subtitle{
     font-size: $card-subtitle-size;
     font-family: $font-family;
-    color: $white;
+    color: $black-for-font;
     text-align: center;
 }
 .mycard-content{
     font-weight: bold;
-    color: $white;
+    color: $black-for-font;
     text-align: center;
     padding-bottom: 40px;
 }
