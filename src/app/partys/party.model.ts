@@ -43,7 +43,7 @@ export class Organizer {
         public lastName: string,
     ){}
 }
-export class Person {
+export class User {
 constructor(
     public id: string,
     public firstName: string,
@@ -54,6 +54,17 @@ constructor(
     public favorites: Favorites[],
 ){}
 }
+
+export class Person {
+    constructor(
+    public id: string,
+    public firstName: string,
+    public lastName: string,
+    public eMail:string,
+    public tel:number,
+    ){}
+}
+
 
 export class Favorites {
     constructor(

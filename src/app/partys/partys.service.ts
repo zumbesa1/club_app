@@ -125,6 +125,11 @@ export class PartysService {
     console.log('Erfolgreich gepostet');
   }
 
+  buyTheTickets(paymentMethod:(string)){
+    console.log("einkauf erfolgreich");
+    //API FOR DB
+  }
+
 
 
 }

@@ -1,37 +1,37 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title>Book your Tickets NJeri</ion-title>
+      <ion-title>Book your Tickets</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content fullscreen>
-    <ion-item>
-  <ion-label>How many Tickets Njeri?</ion-label>
-  <ion-select value="1">
-    <ion-select-option value="1">1</ion-select-option>
-    <ion-select-option value="2">2</ion-select-option>
-    <ion-select-option value="3">3</ion-select-option>
-    <ion-select-option value="4">4</ion-select-option>
-    <ion-select-option value="5">5</ion-select-option>
-    <ion-select-option value="6">6</ion-select-option>
-    <ion-select-option value="7">7</ion-select-option>
-    <ion-select-option value="8">8</ion-select-option>
-    <ion-select-option value="9">9</ion-select-option>
-    <ion-select-option value="10">10</ion-select-option>
-    <ion-select-option value="11">11</ion-select-option>
-    <ion-select-option value="12">12</ion-select-option>
-  </ion-select>
-</ion-item>
+
 
 <ion-content fullscreen>
-  <ion-item>
-<ion-label>Choose your payment Njeri?</ion-label>
-<ion-select value="Choose">
-  <ion-select-option value="1">Bill</ion-select-option>
-  <ion-select-option value="2">Credit Card</ion-select-option>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>CHECK YOUR DETAILS</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" value="Firstname"></ion-input>
+        <ion-input type="text" value="Lastname"></ion-input>
+        <ion-input type="text" value="Email"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Choose your payment</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-select value="Choose" id="payMethod"[(ngModel)]="paymentMethod">
+          <ion-select-option value="Bill">Bill</ion-select-option>
+          <ion-select-option value="Credit Card">Credit Card</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
-  
-</ion-select>
-</ion-item>
-
+<ion-button color="primary" (click)="buybutton()"  >BUY</ion-button>
 </ion-content>
