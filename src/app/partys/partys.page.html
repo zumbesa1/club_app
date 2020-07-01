@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content >
-      <ion-list class="my-list" *ngFor="let party of loadedPartys">   
+      <ion-list *ngFor="let party of loadedPartys">   
         <ion-card [routerLink] = "['/tabs/partys', party.id]" detail>
           <ion-card-header>
             <ion-grid>
@@ -26,6 +26,11 @@
                   <ion-button class="my-ion-button" fill="outline" color="primary">
                     VIEW
                   </ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-card-subtitle class="my-subtitle">{{party.partyOrt.name}}</ion-card-subtitle>
                 </ion-col>
               </ion-row>
             </ion-grid>

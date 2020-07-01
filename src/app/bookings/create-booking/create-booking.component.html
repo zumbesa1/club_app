@@ -1,3 +1,36 @@
-<p>
-  create-booking works!
-</p>
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Book your Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>CHECK YOUR DETAILS</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-input type="text" value="Firstname"></ion-input>
+      <ion-input type="text" value="Lastname"></ion-input>
+      <ion-input type="text" value="Email"></ion-input>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Choose your payment</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-select value="Choose" id="payMethod"[(ngModel)]="paymentMethod">
+        <ion-select-option value="Bill">Bill</ion-select-option>
+        <ion-select-option value="Credit Card">Credit Card</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+
+<ion-button color="primary" (click)="buybutton()"  >BUY</ion-button>
+</ion-content>

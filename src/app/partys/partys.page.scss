@@ -16,6 +16,10 @@ ion-card{
 ion-card-header{
     padding-left: 0px;
     padding-right: 0px;
+    padding-bottom: 5px;;
+}
+p{
+    font-size: $card-content-size;
 }
 .my-ion-icon{
     width: 20px;
@@ -40,7 +44,6 @@ ion-card-header{
     text-align: center;
 }
 .mycard-content{
-    font-size: $card-content-size;
     font-weight: bold;
     color: $black-for-font;
     text-align: center;
@@ -53,8 +56,4 @@ ion-card-header{
     padding-bottom: 0px;
     padding-left: 0;
     padding-right: 0;
-}
-.my-list{
-    padding-top: 0px;
-    padding-bottom: 0px;
 }
