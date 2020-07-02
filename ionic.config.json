@@ -1,5 +1,7 @@
 {
   "name": "club_app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

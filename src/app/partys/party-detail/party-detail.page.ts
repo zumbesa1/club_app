@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PartysService } from '../partys.service';
 import { Party } from '../party.model';
 import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-booking.component';
+import { Map, tileLayer, marker, polyline } from 'leaflet';
 
 @Component({
   selector: 'app-party-detail',
@@ -12,12 +13,16 @@ import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-b
 })
 export class PartyDetailPage implements OnInit {
   party: Party;
-
+  map: Map;
+  marker: any;
+  latLong = [];
+  
   constructor(
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private partyService: PartysService,
-    private modalCtrl: ModalController) { }
+    private modalCtrl: ModalController,
+    private geolocation: Geolocation) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
@@ -50,4 +55,40 @@ export class PartyDetailPage implements OnInit {
     this.partyService.postToFavorits();
   }
 
+  ionViewDidEnter() {
+    this.showMap();
+  }
+
+  showMap() {
+    this.map = new Map('myMap').setView([8.8527288, 47.2004169], 10);
+    tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
+  }
+
+  getPositions() {
+    this.geolocation.getCurrentPosition({
+      enableHighAccuracy: true
+    }).then((res) => {
+      return this.latLong = [
+        res.coords.latitude,
+        res.coords.longitude
+      ]
+    }).then((latlng) => {
+      if (this.marker) {
+        this.marker.remove();
+        this.showMarker(latlng);
+      } else {
+        this.showMarker(latlng);
+      };
+    });
+  }
+
+  showMarker(latLong) {
+    this.marker = marker(latLong, 15);
+    this.marker.addTo(this.map)
+    .bindPopup('Hey, I\'m Here');
+    this.map.setView(latLong);
+  }
+
 }
+
+
