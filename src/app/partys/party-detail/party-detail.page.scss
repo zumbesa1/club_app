@@ -15,18 +15,15 @@ $card-content-size: 18px;
 .my-ion-title{
     font-size: $tab-title-size;
     text-align: center;
-    font-family: $font-family;
     color: $title-grey;
 }
 .my-titel{
     font-size: $card-title-size;
     text-align: center;
-    font-family: $font-family;
     color: $black-for-font;
 }
 .my-subtitle{
     font-size: $card-subtitle-size;
-    font-family: $font-family;
     color: $black-for-font;
     text-align: center;
 }
@@ -42,7 +39,6 @@ $card-content-size: 18px;
 }
 .my-p{
     font-size: $card-content-size;
-    font-family: $font-family;
 }
 
 .my-button-background {

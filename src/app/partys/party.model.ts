@@ -43,17 +43,29 @@ export class Organizer {
         public lastName: string,
     ){}
 }
-export class Person {
-constructor(
-    public id: string,
-    public firstName: string,
-    public lastName: string,
-    public address: string,
-    public plz: number,
-    public password: string,
-    public favorites: Favorites[],
-){}
+export class User {
+    constructor(
+        public id: string,
+        public firstName: string,
+        public lastName: string,
+        public eMail: string,
+        public phoneNumber: string,
+        public address: string,
+        public plz: number,
+        public password: string,
+        public favorites: Favorites,
+    ){}
 }
+
+export class Person {
+        constructor(
+        public id: string,
+        public firstName: string,
+        public lastName: string,
+        public eMail: string,
+        public tel: number,
+        ){}
+    }
 
 export class Favorites {
     constructor(
