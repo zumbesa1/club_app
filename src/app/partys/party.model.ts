@@ -6,11 +6,11 @@ export class Party {
         public title: string,
         public partyOrt: Club,
         public imgURL: string,
-        public djs: string,
-        public musik: string,
+        public djs: DJs,
+        public musik: Musik,
         public description: string,
         public price: number,
-        public organizer: string,
+        public organizer: Organizer,
     ){}
 }
 
@@ -29,7 +29,7 @@ export class DJs {
         public name: string,
     ){}
 }
-export class Music {
+export class Musik {
     constructor(
         public id: string,
         public name: string,

@@ -1,13 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Party, Club, User, Favorites } from './party.model';
 import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PartysService {
+
+  constructor(private http:HttpClient) { }
+
   // tslint:disable-next-line: variable-name
-  private _partys: Party[] = [
+  private _partys: Party[] 
+  
+  getPartys() {
+    this.http.get("https://localhost:8080/partys").subscribe(
+      (data: Array<Party>) => {
+        console.log(data[0])
+        this._partys = data;
+      }
+    )
+  }  
+
+  get partys() {
+    this.http.get("https://localhost:8080/partys").subscribe(
+      (data: Array<Party>) => {
+        console.log(data[0])
+        this._partys = data;
+      }
+    )
+    return this._partys;
+  }
+  
+  /* = [
     new Party(
       'p1',
       '09.07.2020',
@@ -110,7 +135,7 @@ export class PartysService {
       20.00,
       'Max'
     )
-  ];
+  ]; 
   private user: User[] = [
     new User(
       'u1',
@@ -126,14 +151,9 @@ export class PartysService {
         'Argjend'
       ),
     )
-  ];
+  ]; */
 
-  get partys() {
-    return [...this._partys];
-  }
-
-  constructor() { }
-
+  /*
   getUser(id: string){
     return {...this.user.find(p => p.id === id)};
   }
@@ -151,6 +171,7 @@ export class PartysService {
     console.log(paymentForm);
     //HIER Post Request für gekauftes Ticket
   }
+  */
 
 
 
