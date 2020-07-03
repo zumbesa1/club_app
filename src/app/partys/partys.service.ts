@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Party, Club, User, Favorites } from './party.model';
 import { FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -132,7 +134,8 @@ export class PartysService {
     return [...this._partys];
   }
 
-  constructor() { }
+  private partysUrl = 'http://localhost:8080';
+  constructor(private http: HttpClient) { }
 
   getUser(id: string){
     return {...this.user.find(p => p.id === id)};
@@ -142,14 +145,21 @@ export class PartysService {
     return {...this._partys.find(p => p.id === id)};
   }
 
-  postToFavorits(){
+  postToFavorits() {
     console.log('Erfolgreich gepostet');
-    //Hier POST Request für Favorisierter Organizer    
+    return new Promise (resolve => {
+      this.http.get(this.partysUrl + '/partys').subscribe(data => {
+        resolve(data); },
+        err => {
+          console.log(err);
+        });
+    });
+
   }
 
   buyTheTickets(paymentForm: (FormGroup)){
     console.log(paymentForm);
-    //HIER Post Request für gekauftes Ticket
+    // HIER Post Request für gekauftes Ticket
   }
 
 
