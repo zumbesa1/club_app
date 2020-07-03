@@ -6,6 +6,9 @@ import { Party } from '../party.model';
 import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-booking.component';
 import { Map, tileLayer, marker, polyline } from 'leaflet';
 
+import { Plugins } from "@capacitor/core";
+const { Geolocation } = Plugins;
+
 @Component({
   selector: 'app-party-detail',
   templateUrl: './party-detail.page.html',
@@ -21,8 +24,7 @@ export class PartyDetailPage implements OnInit {
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private partyService: PartysService,
-    private modalCtrl: ModalController,
-    private geolocation: Geolocation) { }
+    private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
@@ -37,21 +39,21 @@ export class PartyDetailPage implements OnInit {
   onBookPlace() {
     this.modalCtrl.create({
       component: CreateBookingComponent,
-       componentProps: { selectedPlace: this.party }
-      }).then
+      componentProps: { selectedPlace: this.party }
+    }).then
       (modalEl => {
-      modalEl.present();
-      return modalEl.onDidDismiss();
-    })
-    .then(resultData => {
-      console.log(resultData, resultData.role);
-      if (resultData.role === 'confirm') {
-        console.log('Booked!');
-      }
-    });
+        modalEl.present();
+        return modalEl.onDidDismiss();
+      })
+      .then(resultData => {
+        console.log(resultData, resultData.role);
+        if (resultData.role === 'confirm') {
+          console.log('Booked!');
+        }
+      });
   }
 
-  addToFavorites(){
+  addToFavorites() {
     this.partyService.postToFavorits();
   }
 
@@ -64,28 +66,45 @@ export class PartyDetailPage implements OnInit {
     tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
   }
 
-  getPositions() {
-    this.geolocation.getCurrentPosition({
-      enableHighAccuracy: true
-    }).then((res) => {
-      return this.latLong = [
+  async getPosition() {
+    /*     this.geolocation.getCurrentPosition((res) => {
+          return this.latLong = [
+            res.coords.latitude,
+            res.coords.longitude
+          ]
+        }).then((latlng) => {
+          if (this.marker) {
+            this.marker.remove();
+            this.showMarker(latlng);
+          } else {
+            this.showMarker(latlng);
+          };
+        });
+      } */
+    const coords = await Geolocation.getCurrentPosition();
+    
+/*       return this.latLong = [
         res.coords.latitude,
         res.coords.longitude
       ]
-    }).then((latlng) => {
+    }).then((latlng) => { */
+      this.latLong = [
+        coords.coords.latitude,
+        coords.coords.longitude
+      ]
       if (this.marker) {
         this.marker.remove();
-        this.showMarker(latlng);
+        this.showMarker(this.latLong);
       } else {
-        this.showMarker(latlng);
+        this.showMarker(this.latLong);
       };
-    });
+    
   }
 
   showMarker(latLong) {
     this.marker = marker(latLong, 15);
     this.marker.addTo(this.map)
-    .bindPopup('Hey, I\'m Here');
+      .bindPopup('Hey, I\'m Here');
     this.map.setView(latLong);
   }
 
