@@ -3,7 +3,7 @@ import { NavController, ModalController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { PartysService } from '../partys.service';
 import { Party } from '../party.model';
-import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-booking.component';
+import { CreateBookingPage } from 'src/app/bookings/create-booking/create-booking.Page';
 
 @Component({
   selector: 'app-party-detail',
@@ -31,7 +31,7 @@ export class PartyDetailPage implements OnInit {
 
   onBookPlace() {
     this.modalCtrl.create({
-      component: CreateBookingComponent,
+      component: CreateBookingPage,
        componentProps: { selectedPlace: this.party }
       }).then
       (modalEl => {

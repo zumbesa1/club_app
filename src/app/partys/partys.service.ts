@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Party, Club, User, Favorites } from './party.model';
 import { FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -134,7 +134,7 @@ export class PartysService {
     return [...this._partys];
   }
 
-  private partysUrl = 'http://localhost:8080';
+  private partysUrl = 'https://localhost:8080';
   constructor(private http: HttpClient) { }
 
   getUser(id: string){
@@ -146,7 +146,6 @@ export class PartysService {
   }
 
   postToFavorits() {
-    console.log('Erfolgreich gepostet');
     return new Promise (resolve => {
       this.http.get(this.partysUrl + '/partys').subscribe(data => {
         resolve(data); },
@@ -154,6 +153,8 @@ export class PartysService {
           console.log(err);
         });
     });
+
+    // Hier POST Request für Favorisierter Organizer
 
   }
 
