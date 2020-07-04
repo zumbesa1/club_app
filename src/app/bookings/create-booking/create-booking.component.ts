@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PartysService } from 'src/app/partys/partys.service';
 import { Party, User } from 'src/app/partys/party.model';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-create-booking',
@@ -14,7 +15,7 @@ export class CreateBookingComponent implements OnInit {
   form: FormGroup;
   paymentMethod: (string);
 
-  constructor(private partyService: PartysService) {}
+  constructor(private partyService: PartysService, private modalCtrl: ModalController) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -39,8 +40,12 @@ export class CreateBookingComponent implements OnInit {
 
   buybutton() {
   }
+  onCancel(){
+    this.modalCtrl.dismiss(null, 'cancel');
+  }
 
   onSubmit(form: NgForm){
     console.log(form);
   }
+
 }
