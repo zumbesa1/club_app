@@ -3,7 +3,7 @@ export class Party {
         public id: string;
         public date: string;
         public titel: string;
-        public imgURL: string;
+        public imageUrl: string;
         public description: string;
         public price: number;
         public club: Club;

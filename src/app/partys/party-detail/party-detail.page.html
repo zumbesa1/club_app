@@ -17,17 +17,17 @@
       <ion-card-title class="my-titel">{{party.club.name}}</ion-card-title>
       <ion-card-subtitle class="my-subtitle">{{party.date}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-img [src]="party.imgURL"></ion-img>
+    <ion-img [src]="party.imageUrl"></ion-img>
     <ion-card-content class="mycard-content">
       <p class=my-p>{{party.price | currency:'CHF'}} / ENTRY</p>
       <br>
-      <p class=my-p style="font-size:25px;">{{party.music.name}}</p>
+      <p class=my-p style="font-size:20px;">{{party.music.name}}</p>
       <br>
       <p class=my-p>{{party.dj.name}}</p>
       <br>
       <p class=my-p>{{party.description}}</p>      
       <br>
-      <p class=my-p>{{party.organizer.firstName}}</p> 
+      <p class=my-p>{{party.organizer.firstName}} {{party.organizer.lastName}}</p> 
       <ion-button class="my-button" color="dark" expand="Medium" (click) ="addToFavorites()">
         Follow
       </ion-button>
