@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PartysService } from 'src/app/partys/partys.service';
-import { Party, Person, User } from 'src/app/partys/party.model';
+import { Party, User } from 'src/app/partys/party.model';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,6 @@ import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class CreateBookingComponent implements OnInit {
   party: Party;
-  person: Person;
   user: User = new User();
   form: FormGroup;
   paymentMethod: (string);
