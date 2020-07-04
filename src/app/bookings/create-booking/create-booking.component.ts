@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PartysService } from 'src/app/partys/partys.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Party, Person, User } from 'src/app/partys/party.model';
+import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-booking',
@@ -12,21 +12,36 @@ export class CreateBookingComponent implements OnInit {
   party: Party;
   person: Person;
   user: User;
-  paymentForm: FormGroup;
+  form: FormGroup;
   paymentMethod: (string);
 
-  constructor(private partyService: PartysService, public formBuilder: FormBuilder) {}
+  constructor(private partyService: PartysService) {}
 
   ngOnInit() {
-    this.paymentForm = this.formBuilder.group({
-      firstName: [this.user.firstName, Validators.compose([Validators.required])],
-      lastName: [this.user.lastName, Validators.compose([Validators.required])],
-      eMail: [this.user.eMail, Validators.compose([Validators.required])],
-      telNumber: [this.user.phoneNumber, Validators.compose([Validators.required])]
+    this.form = new FormGroup({
+      firstName: new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required],
+      }),
+      lastName: new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required],
+      }),
+      eMail: new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required],
+      }),
+      phoneNumber:  new FormControl(null, {
+        updateOn: 'blur',
+        validators: [Validators.required],
+      })
     });
   }
 
   buybutton() {
-    this.partyService.buyTheTickets(this.paymentForm);
+  }
+
+  onSubmit(form: NgForm){
+    console.log(form);
   }
 }

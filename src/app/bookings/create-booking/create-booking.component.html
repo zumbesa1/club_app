@@ -1,36 +1,64 @@
 <ion-header translucent>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button type="button" defaultHref="">
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>Book your Tickets</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>CHECK YOUR DETAILS</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <form>
-      <ion-input type="text" value="party.user.firsName"></ion-input>
-      <ion-input type="text" value="Lastname"></ion-input>
-      <ion-input type="text" value="Email"></ion-input>
-    </form>
-  </ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Choose your payment</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-item>
-      <ion-select value="Choose" id="payMethod"[(ngModel)]="paymentMethod">
-        <ion-select-option value="Bill">Bill</ion-select-option>
-        <ion-select-option value="Credit Card">Credit Card</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-card-content>
-</ion-card>
-
-<ion-button color="primary" (click)="buybutton()"  >BUY</ion-button>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>CHECK YOUR DETAILS</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-col size-sm="6" offset-sm="3">
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Firstname</ion-label>
+                  <ion-input type="text" ngModel name="firstName" required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Lasttname</ion-label>
+                  <ion-input type="text" ngModel name="lastName" required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">E-Mail</ion-label>
+                  <ion-input type="email" ngModel name="email" required email></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Phonenumber</ion-label>
+                  <ion-input type="number" ngModel name="phoneNumber" required></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button type="submit" color="primary" (click)="buybutton()" expand="block">BUY</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Choose your payment</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-select value="Choose" id="payMethod" [(ngModel)]="paymentMethod">
+          <ion-select-option value="Bill">Bill</ion-select-option>
+          <ion-select-option value="Credit Card">Credit Card</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
