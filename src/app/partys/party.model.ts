@@ -1,17 +1,15 @@
 
 export class Party {
-    constructor(
-        public id: string,
-        public date: string,
-        public title: string,
-        public partyOrt: Club,
-        public imgURL: string,
-        public djs: string,
-        public musik: string,
-        public description: string,
-        public price: number,
-        public organizer: string,
-    ){}
+        public id: string;
+        public date: string;
+        public titel: string;
+        public club: Club;
+        public imgURL: string;
+        public dj: DJs;
+        public music: Music;
+        public description: string;
+        public price: number;
+        public organizer: Organizer;
 }
 
 export class Club {
@@ -44,17 +42,15 @@ export class Organizer {
     ){}
 }
 export class User {
-    constructor(
-        public id: string,
-        public firstName: string,
-        public lastName: string,
-        public eMail: string,
-        public phoneNumber: string,
-        public address: string,
-        public plz: number,
-        public password: string,
-        public favorites: Favorites,
-    ){}
+        public id: string;
+        public firstName: string;
+        public lastName: string;
+        public eMail: string;
+        public phoneNumber: string;
+        public address: string;
+        public plz: number;
+        public password: string;
+        public favorites: Favorites;
 }
 
 export class Person {

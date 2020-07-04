@@ -7,27 +7,27 @@
       <ion-back-button defaultHref="/tabs/partys"> 
       </ion-back-button>
     </ion-buttons>
-    <ion-title class="my-ion-title">{{party.title.toUpperCase()}}</ion-title>
+    <ion-title *ngIf="party" class="my-ion-title">{{party.titel}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class = "my-ion-content">
-  <ion-card>
+  <ion-card *ngIf="party">
     <ion-card-header>
-      <ion-card-title class="my-titel">{{party.partyOrt.name }}</ion-card-title>
+      <ion-card-title class="my-titel">{{party.club.name}}</ion-card-title>
       <ion-card-subtitle class="my-subtitle">{{party.date}}</ion-card-subtitle>
     </ion-card-header>
     <ion-img [src]="party.imgURL"></ion-img>
     <ion-card-content class="mycard-content">
       <p class=my-p>{{party.price | currency:'CHF'}} / ENTRY</p>
       <br>
-      <p class=my-p style="font-size:25px;">{{party.musik.toUpperCase()}}</p>
+      <p class=my-p style="font-size:25px;">{{party.music.name}}</p>
       <br>
-      <p class=my-p>{{party.djs.toUpperCase()}}</p>
+      <p class=my-p>{{party.dj.name}}</p>
       <br>
-      <p class=my-p>{{party.description.toUpperCase()}}</p>      
+      <p class=my-p>{{party.description}}</p>      
       <br>
-      <p class=my-p>{{party.organizer.toUpperCase()}}</p> 
+      <p class=my-p>{{party.organizer.firstName}}</p> 
       <ion-button class="my-button" color="dark" expand="Medium" (click) ="addToFavorites()">
         Follow
       </ion-button>

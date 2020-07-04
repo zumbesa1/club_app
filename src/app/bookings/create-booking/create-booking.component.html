@@ -19,10 +19,11 @@
           </ion-card-header>
           <ion-card-content>
             <ion-col size-sm="6" offset-sm="3">
+              <p>{{user.firstName}}</p>
               <ion-list>
                 <ion-item>
                   <ion-label position="floating">Firstname</ion-label>
-                  <ion-input type="text" ngModel name="firstName" required></ion-input>
+                  <ion-input type="text" [(ngModel)]="user.firstName" name="firstName" required></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label position="floating">Lasttname</ion-label>

@@ -11,7 +11,7 @@ import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-b
   styleUrls: ['./party-detail.page.scss'],
 })
 export class PartyDetailPage implements OnInit {
-  party: Party;
+  party: Party = null;
 
   constructor(
     private navCtrl: NavController,
@@ -25,7 +25,9 @@ export class PartyDetailPage implements OnInit {
         this.navCtrl.navigateBack('/tabs/partys');
         return;
       }
-      this.party = this.partyService.getParty(paramMap.get('partyId'));
+      this.partyService.getParty(paramMap.get('partyId')).subscribe((data: Party) => {
+        this.party = data;
+      });
     });
   }
 

@@ -11,7 +11,7 @@ import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 export class CreateBookingComponent implements OnInit {
   party: Party;
   person: Person;
-  user: User;
+  user: User = new User();
   form: FormGroup;
   paymentMethod: (string);
 

@@ -9,11 +9,13 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./partys.page.scss'],
 })
 export class PartysPage implements OnInit {
-  loadedPartys: Party[];
+  loadedPartys: Party[] = [];
   constructor(private partyService: PartysService, private menuCtrl: MenuController) { }
 
   ngOnInit() {
-    this.loadedPartys = this.partyService.partys;
+     this.partyService.getPartys().subscribe((data: Party[]) => {
+      this.loadedPartys = data;
+    });
   }
 
   onOpenMenu() {
