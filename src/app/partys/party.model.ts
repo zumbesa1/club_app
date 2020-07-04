@@ -3,12 +3,12 @@ export class Party {
         public id: string;
         public date: string;
         public titel: string;
-        public club: Club;
         public imgURL: string;
-        public dj: DJs;
-        public music: Music;
         public description: string;
         public price: number;
+        public club: Club;
+        public music: Music;
+        public dj: DJs;
         public organizer: Organizer;
 }
 
@@ -16,11 +16,10 @@ export class Club {
     constructor(
         public id: string,
         public name: string,
-        public long: number,
-        public lat: number,
+        public longitude: number,
+        public latitude: number,
     ){}
 }
-
 export class DJs {
     constructor(
         public id: string,
@@ -53,15 +52,6 @@ export class User {
         public favorites: Favorites;
 }
 
-export class Person {
-        constructor(
-        public id: string,
-        public firstName: string,
-        public lastName: string,
-        public eMail: string,
-        public tel: number,
-        ){}
-    }
 
 export class Favorites {
     constructor(
