@@ -134,7 +134,7 @@ export class PartysService {
     return [...this._partys];
   }
 
-  private partysUrl = 'https://localhost:8080';
+  private partysUrl = 'https://localhost:8080/partys';
   constructor(private http: HttpClient) { }
 
   getUser(id: string){
@@ -147,7 +147,7 @@ export class PartysService {
 
   postToFavorits() {
     return new Promise (resolve => {
-      this.http.get(this.partysUrl + '/partys').subscribe(data => {
+      this.http.get(`${this.partysUrl}`).subscribe(data => {
         resolve(data); },
         err => {
           console.log(err);
